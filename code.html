@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>FLASHBACK: A Coding Exercise by Billy DeLashmutt</title>
+    <title>BACKTRACK: A Coding Exercise by Billy DeLashmutt</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,11 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
-
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    
     <link href="css/site.css" rel="stylesheet">
     <link href="css/prism.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png">
@@ -23,8 +27,8 @@
     <!-- === Nav Section === -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/BdLogoDark.svg" class="d-inline-block align-text-bottom"
-                    width="30" height="24"> FLASHBACK</a>
+            <a class="navbar-brand logoFont" href="#"><img src="img/BdLogoDark.svg" class="d-inline-block align-text-top"
+                    width="30" height="24"> BACKTRACK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,7 +45,7 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/Bill-Pill/Backtrack">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://billpill-portfolio.netlify.app/">About</a>
@@ -53,22 +57,57 @@
     <!-- === Main Section === -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-<h2 class="border-1 border-bottom border-dark">The Code for FLASHBACK.</h2>            
+<h2 class="border-1 border-bottom border-dark">The Code for BACKTRACK</h2>            
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function helloWorld(){
-                                alert("Hey World!");
-                            }
+                            // Get string from the page
+// Controller Function
+function getValue() {
+
+    document.getElementById("alert").classList.add("invisible");
+
+    let userString = document.getElementById("userString").value;
+
+    let revString = reverseString(userString);
+
+    displayString(revString);
+}
+
+// Reverse string
+// Logic Function
+function reverseString(userString) {
+    let revString = [];
+
+    // Reverse string via for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+    }
+    return revString;
+}
+
+// Display reversed string to user
+// View Function
+function displayString(revString) {
+
+    // Write message to page
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+    // Show alert box
+    document.getElementById("alert").classList.remove("invisible");
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hey World!"</p>
+                    <p>The Code as seen on the left is structured in three functions.</p>
+                    <h5>getValue</h5>
+                    <p>This is triggered when the "Reverse Me" button is clicked on the app. We hide the "alert" element as these are the results we don't want to display to the user on subsequent runs.</p>
+                    <p>We then save the string input as a variable and pass that into our next function, reverseString.</p>
+                    <h5>reverseString</h5>
+                    <p>This function takes the string passed from the previous function and iterates through each character starting from the last and going backwards. Each iteration pushes the current character to a new array, revString, which will be returned as the reversed string to our controller function and passed as an argument to our next function, displayString.</p>
+                    <h5>displayString</h5>
+                    <p>Here we take our reversed string and apply it in a template literal to write the message to the page. We also need to remove the "invisible" class from our alert element so our reversed string can display!</p>
                 </div>
             </div>
         </div>

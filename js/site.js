@@ -14,14 +14,12 @@ function getValue() {
 // Reverse string
 // Logic Function
 function reverseString(userString) {
-
     let revString = [];
 
     // Reverse string via for loop
     for (let index = userString.length - 1; index >= 0; index--) {
         revString += userString[index];
     }
-
     return revString;
 }
 

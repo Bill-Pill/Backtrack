@@ -1,12 +1,17 @@
 :root {
-    --primary-color: #6d9eeb;
-    --secondary-color: #EBBA6D;
+    --primary-color: #545454;
+    --secondary-color: #ed1c24;
     --dark-color: #424242;
     --white-color: #BDBDBD;
 }
 
 body {
     color: var(--dark-color)
+}
+
+.logoFont {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
 }
 
 nav {
